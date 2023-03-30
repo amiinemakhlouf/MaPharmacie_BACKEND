@@ -2,18 +2,15 @@ package com.proxym.myPharmacy.controller
 
 import com.proxym.myPharmacy.dto.LoginDto
 import com.proxym.myPharmacy.dto.RegisterDto
-import com.proxym.myPharmacy.model._User
+import com.proxym.myPharmacy.model.User
 import com.proxym.myPharmacy.service.UserService
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import jakarta.servlet.http.Cookie
-import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.http.ResponseEntity
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.web.bind.annotation.*
-import org.springframework.web.multipart.support.AbstractMultipartHttpServletRequest
-import java.security.Key
 
 @RestController
 @RequestMapping("api")
@@ -21,8 +18,8 @@ import java.security.Key
 class AuthenticationController(val userService: UserService) {
 
     @PostMapping("register")
-    fun register(@RequestBody body: RegisterDto): ResponseEntity<_User> {
-        val user = _User().apply {
+    fun register(@RequestBody body: RegisterDto): ResponseEntity<User> {
+        val user = User().apply {
             this.email = body.email
             this.password = body.password
         }

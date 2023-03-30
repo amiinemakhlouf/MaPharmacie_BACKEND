@@ -5,11 +5,10 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 
-@Entity
-class _User {
+@Entity(name="users")
+class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id=0
